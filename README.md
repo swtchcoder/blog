@@ -11,6 +11,8 @@ Un projet basé sur l'idée de la fonctionnalité Jam de Spotify.
 L'idée serait qu'au lieu qu'on stream directement aux utilisateurs, on stream
 Sur des "room" qui peuvent être rejoints avec un code.
 
+* [Github](https://github.com/swtchcoder/jam)
+
 ## ezu
 
 Un jeu de rythme base sur osu!mania
