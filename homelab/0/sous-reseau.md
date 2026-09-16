@@ -17,6 +17,7 @@ Déjà, on configure l'IP de notre appareil dans le sous-réseau.
 ```
 sudo ip addr add 10.0.0.1/24 dev enp2s0
 sudo ip link set enp2s0 up
+printf "net.ipv4.ip_nonlocal_bind=1" | sudo tee /etc/sysctl.d/99-custom
 ```
 
 Il faut qu'on configure `dnsmasq` pour attribuer les adresses IP a nos appareils connectés au serveur. On commence par l'installer.
@@ -69,7 +70,7 @@ Maintenant, on a un sous réseau, mais celui-ci ne peut communiquer avec personn
 
 ```
 sudo mkdir -p /etc/sysctl.d/
-echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.d/10-ipforward.conf
+echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.d/99-custom.conf
 sudo sysctl --system
 
 sudo iptables -t nat -A POSTROUTING -o enp1s0 -j MASQUERADE
